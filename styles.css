@@ -1,0 +1,68 @@
+:root{
+  --bg:#fafafa; --card:#fff; --muted:#666; --accent:#1e90ff;
+  --success:#0b9b57; --danger:#c0392b; --border:#e6e9ee; --mono:"Courier New",monospace;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial;background:var(--bg);color:#222;}
+.container{max-width:1200px;margin:0 auto;padding:22px;}
+.site-header{background:linear-gradient(90deg,#0f62fe22 0%,#1e90ff12 100%);border-bottom:1px solid var(--border);padding:18px 0;}
+.site-header h1{margin:0 0 6px;font-size:1.45rem;}
+.subtitle{margin:0;color:var(--muted);font-size:0.95rem;}
+
+.card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px;margin:18px 0;box-shadow:0 2px 6px rgba(20,20,30,0.03);}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+@media(max-width:900px){.grid-2{grid-template-columns:1fr;}}
+
+.transitions-container{margin-top:12px;overflow:auto;}
+.tabla-transiciones{width:100%;border-collapse:collapse;min-width:680px;}
+.tabla-transiciones th,.tabla-transiciones td{border:1px solid var(--border);padding:8px 10px;text-align:center;}
+.tabla-transiciones thead th{background:#fbfdff;font-weight:700;position:sticky;top:0;z-index:2;}
+.mono{font-family:var(--mono);}
+
+.legend{list-style:none;padding:0;margin:8px 0 0;display:flex;gap:12px;flex-wrap:wrap;}
+.legend li{display:flex;align-items:center;gap:8px;color:var(--muted);font-size:0.95rem;}
+.badge{display:inline-block;border-radius:6px;padding:4px 8px;background:#f2f8ff;border:1px solid #d7eaff;font-weight:700;font-family:var(--mono);}
+.badge.error{background:#ffefef;border-color:#f5c6c6;color:var(--danger);}
+
+/* Controls */
+.input-row{display:flex;gap:10px;align-items:center;margin-top:8px;}
+.input-row input[type="text"]{flex:1;padding:8px 12px;border:1px solid var(--border);border-radius:8px;font-size:1rem;}
+.btn{padding:8px 12px;border-radius:8px;border:1px solid transparent;cursor:pointer;font-weight:700;}
+.btn.primary{background:var(--accent);color:#fff;}
+
+/* Tape & DI */
+.tape-visual{margin-top:8px;display:flex;gap:6px;flex-wrap:wrap;align-items:center;}
+.tape-cell{display:inline-flex;align-items:center;justify-content:center;min-width:36px;height:36px;padding:6px 8px;border-radius:8px;border:1px solid #dcdfe6;background:#fff;font-family:var(--mono);font-weight:700;}
+.di-list{margin-top:10px;padding-left:1.15rem;}
+.di-step{margin:6px 0;background:#fbfbfb;padding:8px;border-radius:6px;border:1px solid #f0f0f0;font-family:var(--mono);font-size:0.95rem;}
+.di-state{background:#fff2c6;color:#5b4300;padding:3px 6px;border-radius:6px;font-weight:800;}
+.di-symbol{background:#eef8ff;color:#024;padding:2px 6px;border-radius:5px;font-weight:700;}
+
+/* Results */
+.resultado-exito{color:var(--success);font-weight:700;}
+.resultado-error{color:var(--danger);font-weight:700;}
+.resultado-advertencia{color:#b46c00;font-weight:700;}
+.nota-teorica{color:#666;font-style:italic;}
+
+/* SVG / Canvas container */
+.tm-graph{overflow:auto;padding:12px;border-radius:8px;background:#fff;border:1px solid var(--border);}
+/* canvas wrapper */
+.canvas-wrapper{width:100%;overflow:auto;border-radius:6px;padding:8px;background:#fff;}
+canvas#graphCanvas{width:100%;height:auto;border:1px solid #e9eef7;border-radius:6px;display:block;}
+
+/* Sequence box */
+.state-sequence-box{width:100%;padding:10px;border-radius:8px;border:1px solid var(--border);background:#fff;font-family:var(--mono);font-weight:700;min-height:40px;white-space:nowrap;overflow-x:auto;}
+.septupla-box{margin-top:10px;padding:10px;border-radius:8px;border:1px dashed var(--border);background:#fcfcfe;font-size:0.95rem;}
+
+/* Transitions box */
+.transitions-box{margin-top:10px;padding-left:1.1rem;}
+.transition-step{margin:6px 0;background:#f7fbff;padding:10px;border-radius:6px;border:1px solid #e6f0ff;font-family:var(--mono);font-size:0.95rem;}
+
+/* Helpers */
+.separator{border:0;border-top:1px dashed #ebeff5;margin:18px 0;}
+.muted{color:var(--muted);font-size:0.95rem;}
+.site-footer{padding:16px 0;margin-top:20px;border-top:1px solid var(--border);color:var(--muted);text-align:center;}
+.error{color:#c0392b;font-weight:700;}
+
+/* resaltar transiciones usadas en la tabla */
+.tabla-transiciones tr.used { background: #fff8e1; border-left:4px solid #ffbf00; }

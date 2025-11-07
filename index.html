@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Máquina de Turing — Comparador Binario</title>
+  <meta name="description" content="Simulador de Máquina de Turing que reconoce w-w (binario).">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1>Máquina de Turing — Reconocedor de Igualdad de Dos Cadenas Binarias</h1>
+      <p class="subtitle">Modelo: <code>w - w</code> donde <code>w ∈ {0,1}*</code> (usa espacio o <code>-</code> como separador)</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h2>Descripción formal y tabla</h2>
+      <div class="grid-2">
+        <div>
+          <h3>Séptupla y lenguaje</h3>
+          <p><strong>M</strong> = (Q, Σ, Γ, δ, q<sub>0</sub>, B, q<sub>3</sub>)</p>
+          <p><strong>Q:</strong> { q0, q1, q2, q3, q4, q5, q6, q7, q8 }</p>
+          <p><strong>Σ:</strong> {0,1} — <strong>Γ:</strong> {0,1,X,Y,E,M,☐}</p>
+          <p><strong>Lenguaje:</strong> L(M) = { w - w | w ∈ {0,1}* }</p>
+        </div>
+        <div>
+          <h3>Breve descripción</h3>
+          <p>Escribe 2 cadenas números binarios (separadas por un blanco ó <code>-</code>) y luego las compara, determinando si son iguales o no. La MT marca símbolos de la primera cadena con <span class="mono">X</span>, empareja en la segunda con <span class="mono">Y</span>. <span class="mono">E</span> = éxito, <span class="mono">M</span> = rechazo.</p>
+          <h4>Leyenda</h4>
+          <ul class="legend">
+            <li><span class="badge">X</span> — marcado w₁</li>
+            <li><span class="badge">Y</span> — marcado w₂</li>
+            <li><span class="badge">☐</span> — blanco/separador</li>
+            <li><span class="badge">E</span> — éxito</li>
+            <li><span class="badge error">M</span> — rechazo</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>Tabla de Transiciones (δ)</h3>
+      <div id="tabla-transiciones-display" class="transitions-container" aria-live="polite"></div>
+    </section>
+
+    <hr class="separator">
+
+    <section class="card">
+      <h2>Grafo de la Máquina de Turing</h2>
+      <p class="muted">Puedes alternar entre la imagen PNG o el grafo interactivo (canvas). Al ejecutar la simulación verás la animación del recorrido por el grafo.</p>
+
+      <div style="display:flex; gap:8px; align-items:center; margin-bottom:8px;">
+        <label for="viewToggle">Vista:</label>
+        <select id="viewToggle">
+          <option value="canvas">Canvas interactivo</option>
+          <option value="image">Imagen PNG</option>
+        </select>
+        <button id="btnResetGraph" class="btn">Restablecer resaltados</button>
+      </div>
+
+      <div id="tm-graph" class="tm-graph" role="img" aria-label="Grafo de la Máquina de Turing">
+        <!-- Canvas (interactive) -->
+        <div id="canvas-wrapper" class="canvas-wrapper" style="display:block;">
+          <canvas id="graphCanvas" width="1100" height="620"></canvas>
+        </div>
+
+        <!-- Imagen alternativa -->
+        <div id="image-wrapper" style="display:none;">
+          <img id="tm-graph-img" src="images/tm-graph.png" alt="Grafo de la Máquina de Turing" style="width:100%;height:auto;border-radius:6px;display:block;">
+        </div>
+      </div>
+    </section>
+
+    <hr class="separator">
+
+    <section class="card">
+      <h2>Simulación interactiva</h2>
+      <div class="control-panel">
+        <label for="cadenaInput">Ingresar Cadena (w1 w2):</label>
+        <div class="input-row">
+          <input id="cadenaInput" type="text" placeholder="Ejemplo: 101 101 o 101-101" />
+          <button id="ejecutarBtn" class="btn primary">Ejecutar</button>
+        </div>
+        <p class="muted">Usa espacio o guion (<code>-</code>) como separador. Símbolos válidos: <code>0</code> y <code>1</code>.</p>
+      </div>
+
+      <div id="resultados" class="results card-compact">
+        <h3>Procedimientos Realizados</h3>
+        <p class="muted">Ingrese una cadena y presione <strong>Ejecutar</strong>.</p>
+      </div>
+    </section>
+  </main>
+  <div style="text-align:center; margin-top:25px;"> <a href=https://drive.google.com/file/d/1NIfEHVx60pk4sMBsKgH7ezNsHPRJTtj8/view?usp=sharing target="_blank" class="btn primary"> Ver Documentacion Manuscrita </a> </div>
+
+  <div style="text-align:center; margin-top:25px;"> <a href=https://drive.google.com/file/d/1p2JOcaiPA_HpUre5Kl2gaz2IEvErI05c/view?usp=sharing target="_blank" class="btn primary"> Ver Video Explicativo  </a> </div>
+  <footer class="site-footer">
+    <div class="container"><p>&copy; 2025 Proyecto Autómatas — Máquina de Turing — Luis Enrique Cab Caal</p></div>
+  </footer>
+
+  
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+
